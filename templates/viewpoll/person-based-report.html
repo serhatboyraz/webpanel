@@ -1,0 +1,36 @@
+<div class="color-line"></div>
+<div class="modal-header text-center">
+    <h4 class="modal-title left">Kisi bazli rapor</h4>
+    <a class="btn btn-info" style="color: #FFF;" ng-click="PrintPersonBasedReport()"><i class="fa fa-print"></i> Yazdır</a>
+</div>
+<div class="modal-body">
+    <div id="PersonBasedReport">
+        <div class="row border-bottom" collection-repeat="person in PersonBasedReportData">
+            <div class="hpanel hblue">
+                <div class="panel-heading hbuilt">
+                    <h4 class="text-center">DETAYLAR</h4>
+                </div>
+                <div class="panel-body">
+                    <table class="table">
+                        <tr class="row" ng-repeat="field in person.Fields">
+                            <td class="col-md-6"><b>{{GetFieldTitleText(field.FieldCode)}}</b> {{field.FieldValue}}</td>
+                            <td class="col-md-6"></td>
+                        </tr>
+                        <tr class="row border-bottom" ng-repeat="personQuestion in person.Questions">
+                            <td class="col-md-6 "><b>Anket Sorusu: </b>{{personQuestion.Content}}</td>
+                            <td class="row">
+                                <div ng-repeat="personAnswer in personQuestion.Answers">
+                                    {{personAnswer.Content}}
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal-footer">
+    <button type="button" class="btn btn-default" ng-click="Close()">Kapat</button>
+</div>
+

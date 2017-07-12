@@ -1,0 +1,122 @@
+<div class="content animate-panel">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="hpanel">
+                <button class="btn btn-success" ng-click="CreatePoll()"><i class="fa fa-newspaper-o"></i> Anketi Olustur
+                </button>
+                <br/>
+                <br/>
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="input-group">
+                            <span class="input-group-addon">
+                                <input id="ipCheck" type="checkbox" ng-model="PollData.IpCheck">
+                            </span>
+                            <label class="form-control" for="ipCheck">Ip Dogrulmasi ? </label>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="input-group">
+                            <span class="input-group-addon">
+                                <input id="isCookie" type="checkbox" ng-model="PollData.CookieCheck">
+                            </span>
+                            <label class="form-control" for="isCookie">Cerez Dogrulamasi ?</label>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="input-group">
+                            <span class="input-group-addon">
+                                <input id="isPassword" type="checkbox" ng-model="PollData.IsPassword">
+                            </span>
+                            <label class="form-control" for="isPassword">Sifre Korumasi? </label>
+                        </div>
+                    </div>
+                    <div class="col-md-3" ng-if="PollData.IsPassword">
+                        <div class="input-group">
+                            <span class="input-group-addon">
+                                <i class="fa fa-asterisk"></i>
+                            </span>
+                            <div>
+                                <input class="form-control" type="text" ng-model="PollData.Password"
+                                       placeholder="Anket Şifresi">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <br/>
+                    <input class="form-control input-lg" placeholder="Anket Başlığı" type="text"
+                           ng-model="PollData.PollTitle"/>
+                    <br/>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="hpanel">
+                                <div class="panel-heading hbuilt">
+                                    <h4 class="text-center">Soru Listesi
+                                        <button class="btn btn-primary2 pull-right" style="margin-top:-7px;"
+                                                ng-click="AddQuestionModal()"><i class="fa fa-plus-square"></i> Soru
+                                            Ekle
+                                        </button>
+                                    </h4>
+                                </div>
+                                <div ng-repeat="question in PollData.Questions">
+                                    <div class="hpanel">
+                                        <div class="panel-heading hbuilt">
+                                            <b style="font-size:18px;">Soru: </b>{{question.Content}}
+                                        </div>
+                                        <div class="panel-body">
+                                            <h5>CEVAPLAR</h5>
+                                            <div ng-repeat="answer in question.Answers">
+                                                <hr/>
+                                                <i class="fa fa-chevron-right"></i> {{answer.Content}}
+                                            </div>
+
+                                        </div>
+                                        <div class="panel-footer">
+                                            <button class="btn btn-danger" ng-click="RemoveQuestion($index)"><i
+                                                    class="fa fa-minus-square"></i> Soruyu
+                                                Kaldir
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="hpanel">
+                                <div class="panel-heading hbuilt">
+                                    <h4 class="text-center">Alan Listesi
+                                        <button class="btn btn-primary2 pull-right" style="margin-top:-7px;"
+                                                ng-click="AddFieldModal()"><i class="fa fa-plus-square"></i> Alan Ekle
+                                        </button>
+                                    </h4>
+                                </div>
+                                <div class="panel-body">
+                                    <div class="table-responsive">
+                                        <table class="table">
+                                            <tr>
+                                                <th>Alan Adı</th>
+                                                <th>Alan Tipi</th>
+                                                <th>İşlemler</th>
+                                            </tr>
+                                            <tr ng-repeat="field in PollData.Fields">
+                                                <td>{{field.FieldTitle}}</td>
+                                                <td>{{GetFieldTitle(field.FieldType)}}</td>
+                                                <td>
+                                                    <button class="btn btn-danger" ng-click="RemoveField($index)"><i
+                                                            class="fa fa-minus-square"></i>
+                                                        Alani Kaldir
+                                                    </button>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

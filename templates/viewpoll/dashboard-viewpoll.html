@@ -1,0 +1,136 @@
+<div class="normalheader transition animated fadeIn">
+    <div class="hpanel">
+        <div class="panel-body">
+            <h2 class="font-light m-b-xs">
+                {{PollData.PollTitle}}
+
+            </h2>
+            <small>{{PollData.PollId}}</small>
+        </div>
+    </div>
+</div>
+
+<div class="content animate-panel">
+
+
+    <div class="row">
+        <div class="col-lg-4">
+            <div class="hpanel">
+                <div class="panel-body text-center h-200">
+                    <i class="pe-7s-look fa-4x"></i>
+
+                    <h1 class="m-xs">{{PollFullData.TotalView}}</h1>
+
+                    <h3 class="no-margins text-success">
+                        Goruntulenme
+                    </h3>
+                    <small>Bu anketin toplamda ne kadar cogul kisi tarafindan goruntulendigini belirtir.</small>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="hpanel">
+                <div class="panel-body text-center h-200">
+                    <i class="pe-7s-check fa-4x"></i>
+
+                    <h1 class="m-xs">{{PollFullData.TotalComplate}}</h1>
+
+                    <h3 class="no-margins text-success">
+                        Tamamlanma
+                    </h3>
+                    <small>Bu anketin toplamda ne kadar tamamlandigini belirtir.</small>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="hpanel">
+                <div class="panel-body text-center h-200">
+                    <i class="pe-7s-timer fa-4x"></i>
+
+                    <h1 class="m-xs">{{PollFullData.AvarageComplateTime | stringToTime}}</h1>
+
+                    <h3 class="no-margins text-success">
+                        Ortalama Tamamlanma Suresi
+                    </h3>
+                    <small>Ortalama ne kadar surede tamamlandigini belirtir.</small>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-8">
+            <div class="hpanel">
+                <div class="panel-heading">
+                    <div class="panel-tools">
+                        <a class="btn btn-info" style="color: #FFF;" ng-click="PrintLine()"><i class="fa fa-print"></i>
+                            Yazdır</a>
+
+                    </div>
+                    <h4>ANKET YAPILMA GRAFIGI</h4>
+                </div>
+                <div class="panel-body">
+                    <canvas id="line" class="chart chart-line" chart-data="data"
+                            chart-labels="labels" chart-series="series" chart-options="options"
+                            chart-dataset-override="datasetOverride">
+                    </canvas>
+                </div>
+            </div>
+            <div class="row">
+                <div ng-include src="'templates/viewpoll/question-based-report.html'"></div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="hpanel">
+                <div class="panel-heading">
+                    <h4>ISLEMLER</h4>
+                </div>
+                <div class="list-group">
+                    <a class="list-group-item panel-body" ng-click="PersonBasedReport()">
+                        <i class="pe-7s-users fa-2x"></i> Kisi Bazli Rapor
+                    </a>
+                    <a class="list-group-item panel-body" ng-click="ExportExcel()">
+                        <i class="pe-7s-users fa-2x"></i> Excel Rapor Al
+                    </a>
+                    <!--<a class="list-group-item panel-body" ng-click="ReportWizard()">-->
+                    <!--<i class="pe-7s-graph2 fa-2x"></i> Rapor Sihirbazi-->
+                    <!--</a>-->
+                    <a class="list-group-item panel-body" ng-click="AddToSiteCode()">
+                        <i class="pe-7s-global fa-2x"></i> Sitene Ekle Kodu Al
+                    </a>
+                    <a class="list-group-item panel-body" ng-click="ToggleActive()">
+                        <div ng-show="PollData.Active=='X'">
+                            <i class="pe-7s-unlock fa-2x"></i> Anketi Devredisi Birak
+                        </div>
+                        <div ng-show="PollData.Active!='X'">
+                            <i class="pe-7s-lock fa-2x"></i> Anketi Etkinlestir`
+                        </div>
+                    </a>
+
+                </div>
+            </div>
+            <div class="hpanel">
+                <div class="panel-heading">
+                    <h4>SORULAR</h4>
+                </div>
+                <div class="list-group">
+                    <a class="list-group-item panel-body" ng-repeat="question in QuestionList"
+                       ng-click="ShowQuestionDetails($index)">
+                        <b>Soru :</b> {{question.Content}} <br/>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="row">
+        <div class="hpanel">
+            <div class="col-md-12">
+
+                <div class="panel-body ">
+Bu anket sonuclari PollMan projesi tarafindan {{DateNow | date:'yyyy-MM-dd HH:mm'}} tarihinde {{ PollFullData.AnalyseTime }} kadar zamanda analiz edilerek olusturulmustur.
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

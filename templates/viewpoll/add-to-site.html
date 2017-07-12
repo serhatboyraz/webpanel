@@ -1,0 +1,14 @@
+<div class="color-line"></div>
+<div class="modal-header text-center">
+    <h4 class="modal-title left">Sitene Ekle Kodu</h4>
+    <p>
+        Asagidaki kodu sitenizin uygun bir yerine yapistirarak bu anketi sitenizde goruntuleyebilirsiniz.
+    </p>
+</div>
+<div class="modal-body">
+    <b style="margin-bottom: 10px; display: block;">Sitene Ekle Kodu</b>
+    <textarea class="form-control" rows="5"><iframe src="http://anketbaz.kodofisi.com/addToSite/#/main/{{PollData.PollId}}/{{User.ownerid}}/{{User.ownertype}}" width="100%" height="400"></iframe></textarea>
+</div>
+<div class="modal-footer">
+    <button type="button" class="btn btn-default" ng-click="Close()">Kapat</button>
+</div>

@@ -1,0 +1,17 @@
+<div class="color-line"></div>
+<div class="modal-header text-center">
+    <h4 class="modal-title left">{{QuestionDetails.Content}}</h4>
+</div>
+<div class="modal-body">
+    <div class="row">
+        <canvas class="chart chart-pie" height="400"
+                onselectstart="return false;"
+                onmousedown="return false;"
+                chart-data="QuestionDetails.Data" chart-labels="QuestionDetails.Labels"
+                chart-options="{legend: {display: true,position:'right'}}">
+        </canvas>
+    </div>
+</div>
+<div class="modal-footer">
+    <button type="button" class="btn btn-default" ng-click="Close()">Kapat</button>
+</div>

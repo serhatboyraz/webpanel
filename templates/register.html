@@ -1,0 +1,89 @@
+<div class="color-line"></div>
+<div class="register-container" ng-init="tab='tabUser'">
+    <div class="row" ng-switch="tab">
+        <div class="col-md-12">
+            <div class="text-center m-b-md">
+                <h3>PollMan</h3>
+                <small>
+                    anket yapmanin kolay yolu !
+                </small>
+            </div>
+
+            <!--<div>-->
+            <!--<ul class="nav nav-pills nav-stacked  text-center">-->
+            <!--<li class="col-md-6 pull-left" ng-class="{ active: tab == tabUser }">-->
+            <!--<a href ng-click="tab='tabUser'">Kişisel</a>-->
+            <!--</li>-->
+            <!--<li class="col-md-6 pull-left" ng-class="{ active: tab == tabCompany }">-->
+            <!--<a href ng-click="tab='tabCompany'">Kurumsal</a>-->
+            <!--</li>-->
+            <!--</ul>-->
+            <!--</div>-->
+
+            <div class="hpanel" ng-switch-when="tabUser">
+                <div class="panel-body">
+                    <form action="#" id="loginForm">
+                        <div class="row">
+                            <div class="form-group col-lg-12">
+                                <label>Ad Soyad</label>
+                                <input type="" value="" id="" class="form-control" ng-model="UserData.UserName">
+                            </div>
+                            <div class="form-group col-lg-6">
+                                <label>Email</label>
+                                <input type="" value="" id="" class="form-control" ng-model="UserData.Mail">
+                            </div>
+                            <div class="form-group col-lg-6">
+                                <label>Parola</label>
+                                <input type="password" value="" id="" class="form-control" ng-model="UserData.Password">
+                            </div>
+                        </div>
+                        <div class="text-center">
+                            <button class="btn btn-success" ng-click="Register()" ui-sref="register">Kayıt Ol</button>
+                            <button class="btn btn-default" ui-sref="login">Giriş Ekranı</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+
+            <!--<div class="hpanel" ng-switch-when="tabCompany">-->
+            <!--<div class="panel-body">-->
+            <!--<form action="#">-->
+            <!--<div class="row">-->
+            <!--<div class="form-group col-lg-12">-->
+            <!--<label>Kullanıcı Adı</label>-->
+            <!--<input type="" value="" id="" class="form-control" ng-model="CompanyData.UserName">-->
+            <!--</div>-->
+            <!--<div class="form-group col-lg-6">-->
+            <!--<label>Şirket Adı</label>-->
+            <!--<input type="" value="" id="" class="form-control" ng-model="CompanyData.CompanyName">-->
+            <!--</div>-->
+            <!--<div class="form-group col-lg-6">-->
+            <!--<label>Sektör</label>-->
+            <!--<input type="" value="" id="" class="form-control" ng-model="CompanyData.Sector">-->
+            <!--</div>-->
+            <!--<div class="form-group col-lg-6">-->
+            <!--<label>Email</label>-->
+            <!--<input type="" value="" id="" class="form-control" ng-model="CompanyData.Mail">-->
+            <!--</div>-->
+            <!--<div class="form-group col-lg-6">-->
+            <!--<label>Parola</label>-->
+            <!--<input type="password" value="" id="" class="form-control" ng-model="CompanyData.Password">-->
+            <!--</div>-->
+            <!--</div>-->
+            <!--<div class="text-center">-->
+            <!--<button class="btn btn-success" ng-click="Register()" ui-sref="register">Kayıt Ol</button>-->
+            <!--<button class="btn btn-default">Giriş Ekranı</button>-->
+            <!--</div>-->
+            <!--</form>-->
+            <!--</div>-->
+            <!--</div>-->
+
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12 text-center">
+            <b>PollMan</b> powered by KodOfisi Team
+        </div>
+    </div>
+</div>

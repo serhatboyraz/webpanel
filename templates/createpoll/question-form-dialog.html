@@ -1,0 +1,35 @@
+<div class="color-line"></div>
+<div class="modal-header text-center">
+    <h4 class="modal-title">Yeni soru ekle</h4>
+</div>
+<div class="modal-body">
+    <h5><b>SORU</b></h5>
+    <textarea rows="5" placeholder="Soru" class="form-control" ng-model="QuestionData.Content"></textarea>
+    <hr/>
+    <h5><b>CEVAPLAR</b></h5>
+    <div ng-repeat="answer in QuestionData.Answers">
+        <input style="margin-bottom: 10px;" placeholder="Cevap" class="form-control" type="text" ng-model="answer.Content"/>
+    </div>
+    <hr/>
+    <div class="row">
+        <div class="col-md-6">
+            <button class="btn btn-block btn-danger" ng-click="RemoveAnswer()"><i class="fa fa-minus-square"></i></button>
+        </div>
+        <div class="col-md-6">
+            <button class="btn btn-block btn-info" ng-click="AddAnswer()"><i class="fa fa-plus-square"></i></button>
+        </div>
+    </div>
+    <hr/>
+    <div class="input-group">
+        <span class="input-group-addon">
+            <input id="multiAnswer" type="checkbox" ng-model="QuestionData.IsMultipleAnswer">
+        </span>
+        <label class="form-control" for="multiAnswer">
+            Birden Cok Cevap Isaretlenebilir ?
+        </label>
+    </div>
+</div>
+<div class="modal-footer">
+    <button type="button" class="btn btn-default" ng-click="Close()">Kapat</button>
+    <button type="button" class="btn btn-success" ng-click="AddQuestion()">Save changes</button>
+</div>

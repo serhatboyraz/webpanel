@@ -1,0 +1,23 @@
+<div class="color-line"></div>
+<div class="modal-header text-center">
+    <h4 class="modal-title">Yeni alan ekle</h4>
+    <p>Kullanicilarinizdan ozel bilgi toplamak icin alan ekleyebilirsiniz.</p>
+</div>
+<div class="modal-body">
+    <h5><b>ALAN TİPİ</b></h5>
+    <select class="form-control" ng-model="FieldData.FieldType">
+        <option value="text">{{GetFieldTitle('text')}}</option>
+        <option value="int">{{GetFieldTitle('int')}}</option>
+        <option value="date">{{GetFieldTitle('date')}}</option>
+        <option value="time">{{GetFieldTitle('time')}}</option>
+        <option value="phone">{{GetFieldTitle('phone')}}</option>
+        <option value="mail">{{GetFieldTitle('mail')}}</option>
+    </select>
+    <hr/>
+    <h5><b>ALAN BAŞLIĞI</b></h5>
+    <input placeholder="Alan Başlığı" class="form-control" type="text" ng-model="FieldData.FieldTitle">
+</div>
+<div class="modal-footer">
+    <button type="button" class="btn btn-default" ng-click="Close()">Kapat</button>
+    <button type="button" class="btn btn-primary" ng-click="AddQuestion()">Save changes</button>
+</div>

@@ -1,0 +1,46 @@
+<div class="content animate-panel">
+    <div class="row">
+
+        <div class="hpanel">
+            <div class="panel-heading">
+                <div class="panel-tools">
+                    <a class="btn btn-info" style="color: #FFF;" ng-click="PrintQuestionBasedReport()"><i
+                            class="fa fa-print"></i>
+                        Yazdır</a>
+
+                </div>
+                <h4>SORU TABANLI RAPOR</h4>
+            </div>
+            <div class="panel-body">
+                <div id="QuestionBasedReport">
+                    <div class="row border-bottom" ng-repeat="question in QuestionBasedReportData">
+
+                        <div class="hpanel">
+                            <div class="panel-heading hbuilt">
+                                {{question.Content}}
+                            </div>
+                            <div class="panel-body">
+                                <div class="row" ng-repeat="answer in question.Answers">
+                                    <div class="col-md-6 border-right">{{answer.Content}}</div>
+                                    <div class="col-md-3 border-right">{{answer.VoteCount}}</div>
+                                    <div class="col-md-3">
+                                        <div class="progress m-t-xs full">
+                                            <div style="width: {{(answer.VoteCount*100)/question.VoteCount | number:2}}%"
+                                                 aria-valuemax="100" aria-valuemin="0"
+                                                 aria-valuenow="{{(answer.VoteCount*100)/question.VoteCount | number:0}}"
+                                                 role="progressbar"
+                                                 class=" progress-bar progress-bar-info">
+                                                {{(answer.VoteCount*100)/question.VoteCount | number:1}} &#37;
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

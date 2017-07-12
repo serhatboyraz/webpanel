@@ -1,0 +1,62 @@
+<div class="content animate-panel">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="hpanel">
+                <div class="panel-heading hbuilt">
+                    <h4 class="text-center">Anket Listesi</h4>
+                </div>
+                <div class="panel-body">
+                    <div ng-if="PollList.length==0">
+                        Hic anket olusturulmamis. Anket olusturmak icin sol menuden anket olustur bolumune gitmeniz
+                        yeterli.
+                    </div>
+                    <div ng-if="PollList.length!=0">
+                        <div class="table-responsive">
+                            <table class="table">
+                                <tr>
+                                    <th>Anket Adı</th>
+                                    <th>Durum</th>
+                                    <th>Soru Sayisi</th>
+                                    <th>Yapilma Sayisi</th>
+                                    <th>İşlemler</th>
+                                </tr>
+                                <tr ng-repeat="poll in PollList">
+                                    <td>{{poll.polltitle}}</td>
+                                    <td>
+                                        <span class="label label-danger" ng-show="poll.active!='X'">Pasif</span>
+                                        <span class="label label-success" ng-show="poll.active=='X'">Aktif</span>
+                                    </td>
+                                    <td>
+                                        {{ poll.questions.length }}
+                                    </td>
+                                    <td>{{poll.count}}</td>
+                                    <!--ng-click="OpenPollDetails(poll.pollid)"-->
+                                    <td><a class="btn btn-default"
+                                           ui-sref="dashboard.viewpoll({pollid:poll.pollid})"><i
+                                            class="fa fa-eye"></i> Detaylar</a></td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6" ng-show="ShowPollDetails">
+            <div class="hpanel">
+                <div class="panel-heading hbuilt">
+                    <h4 class="text-center">{{PollDetails.polltitle}}</h4>
+                </div>
+                <div class="panel-body">
+                    <b> <i class="fa fa-users"></i> Toplam Cevaplama</b> : {{PollDetails.count}}
+                </div>
+                <div class="panel-footer">
+                    <button class="btn btn-info" ui-sref="dashboard.viewpoll({pollid:PollDetails.pollid})">Detaylari
+                        Goruntule
+                    </button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

@@ -1,0 +1,42 @@
+<div class="color-line"></div>
+<div class="modal-header text-center">
+    <h4 class="modal-title left">Rapor Sihirbazi</h4>
+    <a class="btn btn-info" style="color: #FFF;" ng-click="PrintGeneratedReport()"><i class="fa fa-print"></i>
+        Yazdır</a>
+</div>
+<div class="modal-body">
+    <div class="row">
+        <div class="col-md-6">
+            <label>Kisi Bazli<input type="radio" name="reportType" value="Person" ng-model="View.ReportType"></label>
+            <br>
+            <label>Soru Bazli<input type="radio" name="reportType" value="Question" ng-model="View.ReportType"></label>
+            <br>
+            <label>Onizleme Goster<input type="checkbox" ng-model="View.PreviewReport"></label>
+            <br>
+            <button ng-click="PrintReport()">Yazdir</button>
+        </div>
+        <div class="col-md-6">
+            <div ng-show="View.ReportType=='Person'">
+                <div ng-repeat="field in FieldData">
+                    <label><input type="checkbox" ng-model="field.ShowReport"> {{field.FieldTitle}}
+                        ({{GetFieldTitle(field.FieldType)}})</label>
+                </div>
+            </div>
+            <div ng-show="View.ReportType=='Question'">
+                <div ng-repeat="question in PollData.Questions">
+                    <label><input type="checkbox" ng-model="questionShowReport">{{question.Content}}</label>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="row">
+        <div id="GeneratedReport" ng-show="View.PreviewReport">
+            ss
+        </div>
+    </div>
+</div>
+<div class="modal-footer">
+    <button type="button" class="btn btn-default" ng-click="Close()">Kapat</button>
+</div>
+
